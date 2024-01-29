@@ -1,0 +1,48 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(143, 241, 241);
+    color: white;
+}
+
+.main-box {
+    display: flex;
+    
+}
+.side-pannel{
+    list-style: none;
+    background-color: aliceblue;
+    height: 70vh;
+    width: 30%;
+    float: left;
+}
+
+.list{
+    list-style: none;
+    padding: 20px;
+}
+
+
+
+.main-content{
+    float: left;
+    background-color: rgb(231, 231, 231);
+    width: 70%;
+    padding: 20px;
+
+}
+
+footer {
+    background-color:aqua;
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}

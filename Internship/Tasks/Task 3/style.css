@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  font-size: 16px;
+}
+
+.main-nav-bar {
+  width: 90%;
+  margin: auto;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.ul-list {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ul-item {
+  list-style: none;
+  margin: 0 20px;
+}
+
+.ul-item a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+.ul-item a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: red;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  transition: width 0.5s;
+}
+
+.ul-item a:hover::after {
+  width: 100%;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon img {
+  height: 25px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.left-part,
+.right-part {
+  flex-basis: 100%;
+}
+
+.search-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-box img {
+  height: 20px;
+  width: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  margin-left: 10px;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.left-part h1 {
+  font-size: 40px;
+}
+
+.left-part h3 {
+  font-size: 18px;
+}
+
+.left-part p {
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.two-button button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 1px solid #fb7381;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #fb7381;
+  background: transparent;
+}
+
+.two-button {
+  margin-bottom: 20px;
+}
+
+.social-media-icon {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-media-icon img {
+  height: 20px;
+  margin: 0 14px;
+}
+
+/* Media Query for small screens */
+@media screen and (max-width: 768px) {
+  .main-nav-bar {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .ul-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .ul-list.active {
+    display: flex;
+  }
+
+  .ul-item {
+    margin: 10px 0;
+  }
+
+  .nav-icon {
+    margin-left: auto;
+  }
+
+  .nav-icon img {
+    margin-left: 10px;
+  }
+
+  .left-part,
+  .right-part {
+    flex-basis: 100%;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box input {
+    margin-top: 10px;
+  }
+
+  .two-button button {
+    margin-top: 10px;
+    margin-right: 0;
+  }
+}
