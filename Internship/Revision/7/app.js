@@ -5,6 +5,7 @@ let started = false;
 let gameLevel = 0;
 let highScore = 0;
 let h2 = document.querySelector("h2");
+let h4 = document.querySelector("h4");
 let colours = ["yellow", "green", "purple", "red"];
 
 document.addEventListener("keypress", function () {
@@ -34,9 +35,6 @@ function levelUp() {
   userSequence = [];
   gameLevel++;
   h2.innerText = `level ${gameLevel}`;
-  if(highScore > gameLevel) {
-    highScore = gameLevel;
-  }
 
   let randomIndex = Math.floor(Math.random() * 4);
   let randomColor = colours[randomIndex];
@@ -54,11 +52,15 @@ function checkAnswer(index) {
     }
   } else {
     h2.innerHTML = `Game Over! Your Score Was <b>${gameLevel}</b><br> Press Any Key to Start`;
+    if (gameLevel > highScore) {
+      highScore = gameLevel;
+    }
+    h4.innerHTML = `High Score : ${highScore} `;
     document.querySelector("body").style.backgroundColor = "red";
     setTimeout(function () {
       document.querySelector("body").style.backgroundColor = "white";
     }, 150);
-    
+
     reset();
   }
 }
