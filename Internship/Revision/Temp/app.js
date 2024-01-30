@@ -12,8 +12,6 @@
 
 // console.log(result);
 
-
-
 // let h3 = document.createElement("h3");
 // h3.innerText = "I'm a Blue Function";
 
@@ -28,19 +26,43 @@
 // heading.innerText = "I'm in div ";
 // para.innerText = "Me Too! ";
 
-
 // newDiv.appendChild(heading);
 // newDiv.appendChild(para);
 
 // document.querySelector(".rao").append(newDiv);
 
-
 // newDiv.style.backgroundColor = "pinkw";
 // newDiv.style.border = "1px solid black";
 
+// function savetoDb(data) {
+//   return new Promise((resolve, reject) => {
+//     let internetSpeed = Math.floor(Math.random() * 10) + 1;
+//     if (internetSpeed > 4) {
+//       resolve("Success: Data was saved successfully");
+//     } else {
+//       reject("Failure: Weak Connections");
+//     }
+//   });
+// }
 
 
-
-
-
+// savetoDb("Hello Yadnesh")
+// .then((result) => {
+//     console.log(result);
+//     console.log("Data 1: Saved Successfully");
+//     return savetoDb("Hello Rao");
+// })
+// .then((result) => {
+//     console.log(result);
+//     console.log("Data 2: Saved Sucessfully");
+//     return savetoDb("Hello Shri");
+// })
+// .then((result) => {
+//     console.log(result);
+//     console.log("Data 3: Saved Sucessfully");
+// })
+// .catch((err) => {
+//     console.log(err);
+//     console.log("Promise rejected");
+// });
 
