@@ -1,0 +1,26 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#loading-indicator, #error-message {
+    display: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card {
+    border: 3px solid #000000;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: bisque;
+}
