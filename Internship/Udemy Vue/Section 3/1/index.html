@@ -9,22 +9,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>  
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Vue Course Goals</h1>
+      <h1>Vue Todo List</h1>
     </header>
-    <section id="user-goals">
-      <h2>My course goals</h2>
+    <section id="user-tasks">
+      <h2>My Tasks</h2>
       <input type="text" v-model="enteredValue" />
-      <button v-on:click="addGoal">Add Goal</button>
-      <p v-if="goals.length === 0">
-        No goals have been added yet - please start adding some!
+      <button v-on:click="addGoal">Add Task</button>
+      <p v-if="tasks.length === 0">
+        No task have been added yet - please start adding some!
       </p>
-      <ul>
-        <li>Goal</li>
+      <ul v-if="tasks.length > 0">
+        <li
+          v-for="(task, index) in tasks"
+          :key="tasks"
+          @click="removeGoal(index)"
+        >
+          {{index}} - {{ task }}
+        </li>
       </ul>
     </section>
   </body>
