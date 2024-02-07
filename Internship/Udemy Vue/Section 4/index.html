@@ -8,9 +8,9 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
     <script src="./app.js" defer></script>
   </head>
   <body>
@@ -30,17 +30,45 @@
           <div class="healthbar__value" :style="playerBarStyle"></div>
         </div>
       </section>
-      <section id="controls">
+      <section class="container" v-if="winner">
+        <h2>Game Over!</h2>
+        <h3 v-if="winner === 'Monster'">You Lost!</h3>
+        <h3 v-else-if="winner === 'Player'">You Win</h3>
+        <h3 v-else-if="winner === 'Draw'">It's a draw</h3>
+        <button @click="startNewGame">Start New Game</button>
+      </section>
+      <section id="controls" v-else>
         <button @click="attackMonster">ATTACK</button>
-        <button :disable="useSpecialAttack" @click="specialAttack">
+        <button :disabled="useSpecialAttack" @click="specialAttack">
           SPECIAL ATTACK
         </button>
         <button @click="healPlayer">HEAL</button>
-        <button>SURRENDER</button>
+        <button @click="surrenderBattle">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="log in logMessage">
+            <!-- {{ log.actionBy }} - {{ log.actionType }} - {{ log.actionValue }} -->
+
+            <span
+              :class="{'log--player': log.actionBy === 'Player', 
+                        'log--monster': log.actionBy === 'Monster' }"
+            >
+              {{ log.actionBy === 'Player' ? 'Player' : 'Monster' }}
+            </span>
+
+            <span v-if="log.actionType === 'heal'"
+              >heal himself for
+              <span class="log--heal">{{ log.actionValue }}</span>
+            </span>
+
+            <span
+              >attacks and deals
+              <span class="log--damage">{{ log.actionValue }}</span>
+            </span>
+          </li>
+        </ul>
       </section>
     </div>
   </body>
