@@ -58,13 +58,13 @@
               {{ log.actionBy === 'Player' ? 'Player' : 'Monster' }}
             </span>
 
-            <span v-if="log.actionType === 'heal'"
-              >heal himself for
+            <span v-if="log.actionType === 'heal'"></span>
+              heal himself for
               <span class="log--heal">{{ log.actionValue }}</span>
             </span>
 
             <span
-              >attacks and deals
+              > attacks and deals
               <span class="log--damage">{{ log.actionValue }}</span>
             </span>
           </li>
