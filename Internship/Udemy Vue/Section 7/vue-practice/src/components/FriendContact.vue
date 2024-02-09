@@ -9,6 +9,7 @@
       <li><strong>Phone:</strong> {{ phoneNumber }}</li>
       <li><strong>Email:</strong> {{ emailAddress }}</li>
     </ul>
+    <button @click="deleteFriend">Delete</button>
   </li>
 </template>
 
@@ -19,6 +20,7 @@ export default {
   //   'phoneNumber',
   //   'emailAddress'
   // ],
+  emits: ["toggle-favorite", "delete-friend"],
   props: {
     id: {
       type: String,
@@ -64,6 +66,9 @@ export default {
     },
     toggleFavorite() {
       this.$emit("toggle-favorite", this.id);
+    },
+    deleteFriend() {
+      this.$emit("delete-friend", this.id);
     },
   },
 };
