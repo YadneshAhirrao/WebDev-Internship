@@ -18,6 +18,7 @@ button {
   border: 1px solid #3a0061;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover,
