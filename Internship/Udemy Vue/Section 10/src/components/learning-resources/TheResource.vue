@@ -34,7 +34,7 @@ export default {
           id: 'google',
           title: 'Google',
           description: 'Learn to google...',
-          link: 'https://google.org',
+          link: 'https://google.com',
         },
       ],
     };
