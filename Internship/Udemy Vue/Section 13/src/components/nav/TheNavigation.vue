@@ -40,7 +40,6 @@ li {
 
 a {
   text-decoration: none;
-  font: inherit;
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
@@ -51,7 +50,7 @@ a {
 
 a:hover,
 a:active,
-a.router-link-active {
+a.active {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
