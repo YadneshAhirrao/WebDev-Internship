@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="block" :class="{ animate: animatedBlock }"></div>
+    <div class="block" :class="{animate: animatedBlock}"></div>
     <button @click="animateBlock">Animate</button>
   </div>
   <base-modal @close="hideDialog" v-if="dialogIsVisible">
@@ -10,25 +10,25 @@
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
   </div>
-</template>
+</template>  
 
 <script>
 export default {
   data() {
     return {
-      dialogIsVisible: false,
       animatedBlock: false,
+      dialogIsVisible: false,
     };
   },
   methods: {
+    animateBlock() {
+      this.animatedBlock = true;
+    },
     showDialog() {
       this.dialogIsVisible = true;
     },
     hideDialog() {
       this.dialogIsVisible = false;
-    },
-    animateBlock() {
-      this.animateBlock = true;
     },
   },
 };
@@ -63,6 +63,7 @@ button:active {
   height: 8rem;
   background-color: #290033;
   margin-bottom: 2rem;
+  /* transition: transform 0.3s ease-out; */
 }
 .container {
   max-width: 40rem;
@@ -75,8 +76,22 @@ button:active {
   border: 2px solid #ccc;
   border-radius: 12px;
 }
-
 .animate {
-  transform: translateX(-50px);
+  /* transform: translateX(-150px); */
+  animation: slide-fade 0.3s ease-out forwards;
+}
+
+@keyframes slide-fade {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+
+  70% {
+    transform: translateX(-120px) scale(1.1);
+  }
+
+  100% {
+    transform: translateX(-150px) scale(1);
+  }
 }
 </style>
