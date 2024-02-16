@@ -1,16 +1,30 @@
 <template>
   <div class="container">
-    <div class="block" :class="{animate: animatedBlock}"></div>
+    <div class="block" :class="{ animate: animatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
-  <base-modal @close="hideDialog" v-if="dialogIsVisible">
+  <div class="container">
+    <transition name="para">
+      <p v-if="paraIsVisible">This may be visible Sometimes</p>
+    </transition>
+    <button @click="toogleParagraph">Toggle Paragraph</button>
+  </div>
+
+  <div class="container">
+    <transition name="fade-button" mode="out-in">
+      <button @click="showUser" v-if="!userAreVisible">Show User</button>
+      <button @click="hideUser" v-else>Hide User</button>
+    </transition>
+  </div>
+
+  <base-modal @close="hideDialog" :open="dialogIsVisible">
     <p>This is a test dialog!</p>
     <button @click="hideDialog">Close it!</button>
   </base-modal>
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
   </div>
-</template>  
+</template>
 
 <script>
 export default {
@@ -18,17 +32,28 @@ export default {
     return {
       animatedBlock: false,
       dialogIsVisible: false,
+      paraIsVisible: false,
+      userAreVisible: false,
     };
   },
   methods: {
     animateBlock() {
-      this.animatedBlock = true;
+      this.animatedBlock = !this.animatedBlock;
     },
     showDialog() {
       this.dialogIsVisible = true;
     },
     hideDialog() {
       this.dialogIsVisible = false;
+    },
+    toogleParagraph() {
+      this.paraIsVisible = !this.paraIsVisible;
+    },
+    showUser() {
+      this.userAreVisible = true;
+    },
+    hideUser() {
+      this.userAreVisible = false;
     },
   },
 };
@@ -78,10 +103,55 @@ button:active {
 }
 .animate {
   /* transform: translateX(-150px); */
-  animation: slide-fade 0.3s ease-out forwards;
+  animation: slide-scale 0.3s ease-out forwards;
 }
 
-@keyframes slide-fade {
+.para-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.para-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.para-enter-to {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.para-leave-from {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.para-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.para-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-button-enter-from,
+.fade-button-leave-to {
+  opacity: 0;
+}
+.fade-button-enter-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-button-leave-active {
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-button-enter-to,
+.fade-button-leave-from {
+  opacity: 1;
+}
+
+@keyframes slide-scale {
   0% {
     transform: translateX(0) scale(1);
   }
