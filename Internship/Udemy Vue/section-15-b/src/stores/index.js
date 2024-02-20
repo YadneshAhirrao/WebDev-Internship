@@ -1,10 +1,11 @@
 import { createStore } from "vuex";
-import productModule from "./modules/products.js";
+
+import productsModule from "./modules/products.js";
 import cartModule from "./modules/cart.js";
 
 const store = createStore({
   modules: {
-    prods: productModule,
+    prods: productsModule,
     cart: cartModule,
   },
   state() {
@@ -16,7 +17,7 @@ const store = createStore({
     login(state) {
       state.isLoggedIn = true;
     },
-    logout() {
+    logout(state) {
       state.isLoggedIn = false;
     },
   },
