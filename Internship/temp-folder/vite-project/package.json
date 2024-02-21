@@ -1,7 +1,7 @@
 {
-  "name": "sample-nav",
-  "version": "0.0.0",
+  "name": "vite-project",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,12 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.15",
-    "vue-navigation-bar": "^6.1.0"
+    "vue": "^3.4.19"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.3",
-    "daisyui": "^4.7.2",
-    "vite": "^5.0.11"
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.4"
   }
 }
