@@ -3,7 +3,7 @@
     <slot></slot>
   </button>
 
-  <router-link v-else :to="to">
+  <router-link v-else :to="to" :class="mode">
     <slot></slot>
   </router-link>
 </template>
