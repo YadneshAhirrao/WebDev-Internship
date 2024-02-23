@@ -8,7 +8,7 @@
         v-model.trim="firstName.val"
         @blur="clearValidity('firstName')"
       />
-      <p v-if="!firstName.isValid">First Name Must Not Be Empty</p>
+      <p v-if="!firstName.isValid">Firstname must not be empty.</p>
     </div>
 
     <div class="form-control" :class="{ invalid: !lastName.isValid }">
@@ -19,19 +19,18 @@
         v-model.trim="lastName.val"
         @blur="clearValidity('lastName')"
       />
-      <p v-if="!lastName.isValid">Last Name Must Not Be Empty</p>
+      <p v-if="!lastName.isValid">Lastname must not be empty.</p>
     </div>
 
     <div class="form-control" :class="{ invalid: !description.isValid }">
-      <label for="description">description</label>
+      <label for="description">Description</label>
       <textarea
-        name="description"
         id="description"
         rows="5"
         v-model.trim="description.val"
         @blur="clearValidity('description')"
       ></textarea>
-      <p v-if="!description.isValid">Description Must Not Be Empty</p>
+      <p v-if="!description.isValid">Description must not be empty.</p>
     </div>
 
     <div class="form-control" :class="{ invalid: !rate.isValid }">
@@ -42,11 +41,11 @@
         v-model.number="rate.val"
         @blur="clearValidity('rate')"
       />
-      <p v-if="!rate.isValid">Rate must be greater than 0</p>
+      <p v-if="!rate.isValid">Rate must be greater than 0.</p>
     </div>
 
     <div class="form-control" :class="{ invalid: !areas.isValid }">
-      <h3>Area of Expertise</h3>
+      <h3>Areas of Expertise</h3>
       <div>
         <input
           type="checkbox"
@@ -57,7 +56,6 @@
         />
         <label for="frontend">Frontend Development</label>
       </div>
-
       <div>
         <input
           type="checkbox"
@@ -68,7 +66,6 @@
         />
         <label for="backend">Backend Development</label>
       </div>
-
       <div>
         <input
           type="checkbox"
@@ -79,9 +76,9 @@
         />
         <label for="career">Career Advisory</label>
       </div>
-      <p v-if="!areas.isValid">At least one expertise must be selected</p>
+      <p v-if="!areas.isValid">At least one expertise must be selected.</p>
     </div>
-    <p v-if="!formIsValid">Please Fix the above errors and submit again</p>
+    <p v-if="!formIsValid">Please fix the above errors and submit again.</p>
     <base-button>Register</base-button>
   </form>
 </template>
@@ -118,12 +115,36 @@ export default {
     clearValidity(input) {
       this[input].isValid = true;
     },
+    validateForm() {
+      this.formIsValid = true;
+      if (this.firstName.val === "") {
+        this.firstName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.lastName.val === "") {
+        this.lastName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.description.val === "") {
+        this.description.isValid = false;
+        this.formIsValid = false;
+      }
+      if (!this.rate.val || this.rate.val < 0) {
+        this.rate.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.areas.val.length === 0) {
+        this.areas.isValid = false;
+        this.formIsValid = false;
+      }
+    },
     submitForm() {
       this.validateForm();
 
       if (!this.formIsValid) {
         return;
       }
+
       const formData = {
         first: this.firstName.val,
         last: this.lastName.val,
@@ -133,34 +154,6 @@ export default {
       };
 
       this.$emit("save-data", formData);
-    },
-
-    validateForm() {
-      this.formIsValid = true;
-      if (this.firstName.val === "") {
-        this.firstName.isValid = false;
-        this.formIsValid = false;
-      }
-
-      if (this.lastName.val === "") {
-        this.lastName.isValid = false;
-        this.formIsValid = false;
-      }
-
-      if (this.description.val === "") {
-        this.description.isValid = false;
-        this.formIsValid = false;
-      }
-
-      if (!this.rate.val || this.rate.val < 0) {
-        this.rate.isValid = false;
-        this.formIsValid = false;
-      }
-
-      if (!this.areas.val.length === 0) {
-        this.areas.isValid = false;
-        this.formIsValid = false;
-      }
     },
   },
 };
@@ -220,5 +213,9 @@ h3 {
 .invalid input,
 .invalid textarea {
   border: 1px solid red;
+}
+
+.invalid p {
+  color: rgb(75, 74, 74);
 }
 </style>
