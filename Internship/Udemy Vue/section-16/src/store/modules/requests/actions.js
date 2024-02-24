@@ -1,24 +1,23 @@
 export default {
   async contactCoach(context, payload) {
     const newRequest = {
-      //   id: new Date().toISOString(),
-      //   coachId: payload.coachId,
       userEmail: payload.email,
       message: payload.message,
     };
-
-    const responce = await fetch(
-      `https://vue-demo-340ca-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`,
+    const response = await fetch(
+      `https://vue-demo-340ca-default-rtdb.firebaseio.com//requests/${payload.coachId}.json`,
       {
         method: "POST",
         body: JSON.stringify(newRequest),
       }
     );
 
-    const responseData = await responce.json();
+    const responseData = await response.json();
 
-    if (!responce.ok) {
-      const error = new Error(responseData.message || "failed to send request");
+    if (!response.ok) {
+      const error = new Error(
+        responseData.message || "Failed to send request."
+      );
       throw error;
     }
 
@@ -27,22 +26,21 @@ export default {
 
     context.commit("addRequest", newRequest);
   },
-
-  async fetchRequest(context) {
-    const coachId = context.rootGatter.userId;
-    const responce = await fetch(
-      `https://vue-demo-340ca-default-rtdb.firebaseio.com/requests/${coachId}.json`
+  async fetchRequests(context) {
+    const coachId = context.rootGetters.userId;
+    const response = await fetch(
+      `https://vue-demo-340ca-default-rtdb.firebaseio.com//requests/${coachId}.json`
     );
-    const responseData = await responce.json();
+    const responseData = await response.json();
 
-    if (!responce.ok) {
+    if (!response.ok) {
       const error = new Error(
-        responseData.message || "failed to fetch requests"
+        responseData.message || "Failed to fetch requests."
       );
       throw error;
     }
 
-    const request = [];
+    const requests = [];
 
     for (const key in responseData) {
       const request = {
@@ -51,8 +49,9 @@ export default {
         userEmail: responseData[key].userEmail,
         message: responseData[key].message,
       };
-      request.push(request);
+      requests.push(request);
     }
-    context.commit("setRequest", request);
+
+    context.commit("setRequests", requests);
   },
 };
