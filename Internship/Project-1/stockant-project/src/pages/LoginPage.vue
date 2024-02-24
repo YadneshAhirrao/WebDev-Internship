@@ -37,9 +37,11 @@
           </div>
         </div>
         <a class="anchor-tag" href="#">Forgot Password?</a>
-        <!-- <button type="submit" class="btn" value="Login"> -->
-        <router-link class="router-link" to="/dashboard">Login</router-link>
-        <!-- </button> -->
+        <router-link class="router-link" to="/dashboard"
+          ><button type="submit" class="btn" value="Login">
+            Login
+          </button></router-link
+        >
       </form>
     </div>
   </div>
