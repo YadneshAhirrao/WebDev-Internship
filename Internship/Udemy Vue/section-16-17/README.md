@@ -2,7 +2,7 @@
 
 ## Project URL
 ```
-[npm install](https://vue-demo-340ca.web.app)
+https://vue-demo-340ca.web.app
 ```
 
 ## Project setup
