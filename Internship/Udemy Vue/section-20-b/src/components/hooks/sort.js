@@ -26,5 +26,9 @@ export default function useSort(availableItems, sortProperty) {
     sorting.value = mode;
   }
 
-  return { sorting, displayedUsers, sort };
+  return {
+    sorting,
+    displayedUsers,
+    sort,
+  };
 }

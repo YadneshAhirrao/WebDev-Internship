@@ -8,7 +8,7 @@
     ></base-search>
     <ul v-if="hasProjects">
       <project-item
-        v-for="prj in availableItems"
+        v-for="prj in availableProjects"
         :key="prj.id"
         :title="prj.title"
       ></project-item>
@@ -31,23 +31,12 @@ export default {
   },
   props: ["user"],
   setup(props) {
-    // const enteredSearchTerm = ref('');
-    // const activeSearchTerm = ref('');
-
-    // const availableProjects = computed(function () {
-    //   if (activeSearchTerm.value) {
-    //     return props.user.projects.filter((prj) =>
-    //       prj.title.includes(activeSearchTerm.value)
-    //     );
-    //   }
-    //   return props.user.projects;
-    // });
-
     const { user } = toRefs(props);
 
     const projects = computed(function () {
       return user.value ? user.value.projects : [];
     });
+
     const { enteredSearchTerm, availableItems, updateSearch } = useSearch(
       projects,
       "title"
@@ -57,28 +46,13 @@ export default {
       return user.value.projects && availableItems.value.length > 0;
     });
 
-    // watch(enteredSearchTerm, function (newValue) {
-    //   setTimeout(() => {
-    //     if (newValue === enteredSearchTerm.value) {
-    //       activeSearchTerm.value = newValue;
-    //     }
-    //   }, 300);
-    // });
-
-    // const propsWithRefs = toRefs(props);
-    // const user = propsWithRefs.user;
-
     watch(user, function () {
       updateSearch("");
     });
 
-    // function updateSearch(val) {
-    //   enteredSearchTerm.value = val;
-    // }
-
     return {
       enteredSearchTerm,
-      availableItems,
+      availableProjects: availableItems,
       hasProjects,
       updateSearch,
     };

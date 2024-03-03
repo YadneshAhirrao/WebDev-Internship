@@ -6,13 +6,12 @@
 </template>
 
 <script>
-
 export default {
-  props: ['id', 'userName'],
-  emits: ['list-projects'],
+  props: ["id", "userName"],
+  emits: ["list-projects"],
   methods: {
     viewProjects() {
-      this.$emit('list-projects', this.id);
+      this.$emit("list-projects", this.id);
     },
   },
 };
