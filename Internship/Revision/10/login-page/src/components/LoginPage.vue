@@ -101,6 +101,7 @@ body {
   width: 500px;
 }
 
+
 form {
   width: 360px;
 }
