@@ -63,6 +63,64 @@
           </ejs-richtexteditor>
         </div> -->
       </div>
+
+      <div class="btn-save-cancel">
+        <el-button size="small" type="primary">Save</el-button>
+        <el-button size="small" type="text">Cancel</el-button>
+      </div>
+
+      <div class="discription sub-task">
+        <p>Subtasks</p>
+        <el-progress
+          style="width: 40rem"
+          :percentage="30"
+          :format="format"
+        ></el-progress>
+
+        <table class="table-class">
+          <tr class="table-content">
+            <td>Bug</td>
+            <td>NNG-13088</td>
+            <td class="task-title">POC for Streamlit integration</td>
+            <td class="table-avtar">
+              <img
+                src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
+                alt=""
+              />
+            </td>
+
+            <td>GROOMED</td>
+          </tr>
+          <tr class="table-content">
+            <td>Bug</td>
+            <td>NNG-13088</td>
+            <td class="task-title">POC for Streamlit integration</td>
+            <td class="table-avtar">
+              <img
+                src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
+                alt=""
+              />
+            </td>
+
+            <td>GROOMED</td>
+          </tr>
+          <tr class="table-content">
+            <td>Bug</td>
+            <td>NNG-13088</td>
+            <td class="task-title">
+              POC for Streamlit sdfsdfsdfsdf integration
+            </td>
+            <td class="table-avtar">
+              <img
+                src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
+                alt=""
+              />
+            </td>
+
+            <td>GROOMED</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -145,6 +203,9 @@ export default {
     hideShow() {
       this.isVisible = !this.isVisible;
     },
+    format(percentage) {
+      return percentage === 100 ? "Done" : `${percentage}%`;
+    },
   },
 };
 </script>
@@ -214,8 +275,31 @@ export default {
 }
 
 .texteditor {
-  width: 50rem;
+  width: 40rem;
   background-color: aqua;
   height: 20rem;
+}
+
+.btn-save-cancel {
+  padding-top: 0.3rem;
+}
+
+.progress {
+  display: flex;
+}
+
+.table-content > td {
+  padding: 0.5rem 0.125rem;
+  padding-left: 0.4rem;
+  font-size: 14px;
+  border-bottom: 1px solid #091e4224;
+}
+
+.task-title {
+  width: 20rem;
+}
+
+.table-avtar {
+  margin-left: 3rem;
 }
 </style>
