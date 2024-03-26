@@ -32,13 +32,36 @@
           <el-breadcrumb-item> <a href="/">NNG-1001</a></el-breadcrumb-item>
         </el-breadcrumb>
       </div>
+
       <div class="ticket-title">
         <h2>Licence Management</h2>
       </div>
       <div class="btn-ticket">
         <el-button size="mini" type="info" plain
-          ><i class="el-icon-paperclip"></i
-        ></el-button>
+          ><i class="fa-solid fa-paperclip fa-lg paperclip-icon"></i>
+          Attach</el-button
+        >
+        <el-button size="mini" type="info" plain
+          ><i class="fa-solid fa-copy fa-lg"></i> Create subtask</el-button
+        >
+        <el-button size="mini" type="info" plain
+          ><i class="fa-solid fa-link fa-lg"></i> Link Issue</el-button
+        >
+        <el-button size="mini" type="info" plain
+          ><i class="fa-regular fa-square-check fa-lg"></i> Add
+          Checklist</el-button
+        >
+      </div>
+
+      <div class="discription">
+        <p>Description :</p>
+      </div>
+
+      <div class="texteditor">
+        <!-- <div>
+          <ejs-richtexteditor ref="defaultRTE" :height="400">
+          </ejs-richtexteditor>
+        </div> -->
       </div>
     </div>
   </div>
@@ -46,13 +69,77 @@
 
 <script>
 import SideBar from "../UI/SideBar.vue";
+// import {
+//   RichTextEditorComponent,
+//   Toolbar,
+//   Link,
+//   Image,
+//   Count,
+//   HtmlEditor,
+//   QuickToolbar,
+// } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
   components: {
     SideBar,
+    // "ejs-richtexteditor": RichTextEditorComponent,
   },
+  // provide: {
+  //   richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar],
+  // },
   data() {
-    return { isVisible: false };
+    return {
+      isVisible: false,
+      // height: 400,
+      // quickToolbarSettings: {
+      //   image: [
+      //     "Replace",
+      //     "Align",
+      //     "Caption",
+      //     "Remove",
+      //     "InsertLink",
+      //     "OpenImageLink",
+      //     "-",
+      //     "EditImageLink",
+      //     "RemoveImageLink",
+      //     "Display",
+      //     "AltText",
+      //     "Dimension",
+      //   ],
+      // },
+      // toolbarSettings: {
+      //   items: [
+      //     "Bold",
+      //     "Italic",
+      //     "Underline",
+      //     "StrikeThrough",
+      //     "FontName",
+      //     "FontSize",
+      //     "FontColor",
+      //     "BackgroundColor",
+      //     "LowerCase",
+      //     "UpperCase",
+      //     "|",
+      //     "Formats",
+      //     "Alignments",
+      //     "OrderedList",
+      //     "UnorderedList",
+      //     "Outdent",
+      //     "Indent",
+      //     "|",
+      //     "CreateLink",
+      //     "Image",
+      //     "|",
+      //     "ClearFormat",
+      //     "Print",
+      //     "SourceCode",
+      //     "FullScreen",
+      //     "|",
+      //     "Undo",
+      //     "Redo",
+      //   ],
+      // },
+    };
   },
   methods: {
     hideShow() {
@@ -63,6 +150,15 @@ export default {
 </script>
 
 <style scoped>
+/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-vue-richtexteditor/styles/material.css"; */
+
 .wrap-container {
   display: flex;
 }
@@ -105,5 +201,21 @@ export default {
 
 .btn-ticket {
   margin-top: 0.8rem;
+}
+
+.paperclip-icon {
+  padding-right: 0.2rem;
+}
+
+.discription > p {
+  padding-top: 1rem;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.texteditor {
+  width: 50rem;
+  background-color: aqua;
+  height: 20rem;
 }
 </style>

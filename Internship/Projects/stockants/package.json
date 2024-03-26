@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@syncfusion/ej2-vue-richtexteditor": "^25.1.35",
+    "@syncfusion/ej2-vue-richtexteditor": "^25.1.37",
     "ag-grid-community": "^31.2.0",
     "ag-grid-enterprise": "^31.2.0",
     "autoprefixer": "^10.4.18",
