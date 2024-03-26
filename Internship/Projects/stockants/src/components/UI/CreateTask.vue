@@ -121,6 +121,20 @@
           </tr>
         </table>
       </div>
+
+      <div class="activity">
+        <p>Activity</p>
+
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="All" name="first">All</el-tab-pane>
+          <el-tab-pane label="Comments" name="second">Comments</el-tab-pane>
+          <el-tab-pane label="History" name="third">History</el-tab-pane>
+          <el-tab-pane label="Work Log" name="fourth">Work Log</el-tab-pane>
+          <el-tab-pane label="Checklist History" name="fifth"
+            >Checklist History</el-tab-pane
+          >
+        </el-tabs>
+      </div>
     </div>
   </div>
 </template>
@@ -148,6 +162,7 @@ export default {
   data() {
     return {
       isVisible: false,
+      activeName: "first",
       // height: 400,
       // quickToolbarSettings: {
       //   image: [
@@ -205,6 +220,9 @@ export default {
     },
     format(percentage) {
       return percentage === 100 ? "Done" : `${percentage}%`;
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
     },
   },
 };
@@ -270,6 +288,12 @@ export default {
 
 .discription > p {
   padding-top: 1rem;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.activity > p {
+  padding-top: 2rem;
   font-weight: 600;
   font-size: 14px;
 }
