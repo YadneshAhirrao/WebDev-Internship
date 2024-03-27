@@ -23,195 +23,185 @@
     </div>
 
     <div class="main-content">
-      <div class="bread-crumb">
-        <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">Projects</el-breadcrumb-item>
-          <el-breadcrumb-item>
-            <a href="/">NIMBUS Next Gen</a></el-breadcrumb-item
+      <div class="left-part">
+        <div class="bread-crumb">
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/' }"
+              >Projects</el-breadcrumb-item
+            >
+            <el-breadcrumb-item>
+              <a href="/">NIMBUS Next Gen</a></el-breadcrumb-item
+            >
+            <el-breadcrumb-item> <a href="/">NNG-1001</a></el-breadcrumb-item>
+          </el-breadcrumb>
+        </div>
+
+        <div class="ticket-title">
+          <h2>Licence Management</h2>
+        </div>
+        <div class="btn-ticket">
+          <el-button size="mini" type="info" plain
+            ><i class="fa-solid fa-paperclip fa-lg paperclip-icon"></i>
+            Attach</el-button
           >
-          <el-breadcrumb-item> <a href="/">NNG-1001</a></el-breadcrumb-item>
-        </el-breadcrumb>
-      </div>
-
-      <div class="ticket-title">
-        <h2>Licence Management</h2>
-      </div>
-      <div class="btn-ticket">
-        <el-button size="mini" type="info" plain
-          ><i class="fa-solid fa-paperclip fa-lg paperclip-icon"></i>
-          Attach</el-button
-        >
-        <el-button size="mini" type="info" plain
-          ><i class="fa-solid fa-copy fa-lg"></i> Create subtask</el-button
-        >
-        <el-button size="mini" type="info" plain
-          ><i class="fa-solid fa-link fa-lg"></i> Link Issue</el-button
-        >
-        <el-button size="mini" type="info" plain
-          ><i class="fa-regular fa-square-check fa-lg"></i> Add
-          Checklist</el-button
-        >
-      </div>
-
-      <div class="discription">
-        <p>Description :</p>
-      </div>
-
-      <div class="texteditor">
-        <!-- <div>
-          <ejs-richtexteditor ref="defaultRTE" :height="400">
-          </ejs-richtexteditor>
-        </div> -->
-      </div>
-
-      <div class="btn-save-cancel">
-        <el-button size="small" type="primary">Save</el-button>
-        <el-button size="small" type="text">Cancel</el-button>
-      </div>
-
-      <div class="discription sub-task">
-        <p>Subtasks</p>
-        <el-progress
-          style="width: 40rem"
-          :percentage="30"
-          :format="format"
-        ></el-progress>
-
-        <table class="table-class">
-          <tr class="table-content">
-            <td>Bug</td>
-            <td>NNG-13088</td>
-            <td class="task-title">POC for Streamlit integration</td>
-            <td class="table-avtar">
-              <img
-                src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
-                alt=""
-              />
-            </td>
-
-            <td>GROOMED</td>
-          </tr>
-          <tr class="table-content">
-            <td>Bug</td>
-            <td>NNG-13088</td>
-            <td class="task-title">POC for Streamlit integration</td>
-            <td class="table-avtar">
-              <img
-                src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
-                alt=""
-              />
-            </td>
-
-            <td>GROOMED</td>
-          </tr>
-          <tr class="table-content">
-            <td>Bug</td>
-            <td>NNG-13088</td>
-            <td class="task-title">
-              POC for Streamlit sdfsdfsdfsdf integration
-            </td>
-            <td class="table-avtar">
-              <img
-                src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
-                alt=""
-              />
-            </td>
-
-            <td>GROOMED</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="activity">
-        <p>Activity</p>
-
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="All" name="first">All</el-tab-pane>
-          <el-tab-pane label="Comments" name="second">Comments</el-tab-pane>
-          <el-tab-pane label="History" name="third">History</el-tab-pane>
-          <el-tab-pane label="Work Log" name="fourth">Work Log</el-tab-pane>
-          <el-tab-pane label="Checklist History" name="fifth"
-            >Checklist History</el-tab-pane
+          <el-button size="mini" type="info" plain
+            ><i class="fa-solid fa-copy fa-lg"></i> Create subtask</el-button
           >
-        </el-tabs>
+          <el-button size="mini" type="info" plain
+            ><i class="fa-solid fa-link fa-lg"></i> Link Issue</el-button
+          >
+          <el-button size="mini" type="info" plain
+            ><i class="fa-regular fa-square-check fa-lg"></i> Add
+            Checklist</el-button
+          >
+        </div>
+
+        <div class="discription">
+          <p>Description :</p>
+        </div>
+
+        <div class="texteditor">
+          <Editor
+            class="editor"
+            model-events="change keydown blur focus paste"
+            api-key="s56ww2wz2a1pzunzppdkc2byrc22cgmmj0tk5jtozb5colk4"
+            :init="{
+              toolbar_mode: 'sliding',
+              height: 320,
+              plugins:
+                'anchor autolink charmap codesample emoticons  link lists searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+              toolbar:
+                'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link  table mergetags | checklist numlist bullist indent outdent |  align lineheight |  emoticons charmap | removeformat',
+              tinycomments_mode: 'embedded',
+            }"
+          />
+        </div>
+
+        <div class="btn-save-cancel">
+          <el-button size="small" type="primary">Save</el-button>
+          <el-button size="small" type="text">Cancel</el-button>
+        </div>
+
+        <div class="discription sub-task">
+          <p>Subtasks</p>
+          <el-progress
+            style="width: 40rem"
+            :percentage="30"
+            :format="format"
+          ></el-progress>
+
+          <table class="table-class">
+            <tr class="table-content">
+              <td>Bug</td>
+              <td>NNG-13088</td>
+              <td class="task-title">POC for Streamlit integration</td>
+              <td class="table-avtar">
+                <img
+                  src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
+                  alt=""
+                />
+              </td>
+
+              <td>GROOMED</td>
+            </tr>
+            <tr class="table-content">
+              <td>Bug</td>
+              <td>NNG-13088</td>
+              <td class="task-title">POC for Streamlit integration</td>
+              <td class="table-avtar">
+                <img
+                  src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
+                  alt=""
+                />
+              </td>
+
+              <td>GROOMED</td>
+            </tr>
+            <tr class="table-content">
+              <td>Bug</td>
+              <td>NNG-13088</td>
+              <td class="task-title">
+                POC for Streamlit sdfsdfsdfsdf integration
+              </td>
+              <td class="table-avtar">
+                <img
+                  src="https://ui-avatars.com/api/?rounded=true&name=SC&background=44546f&color=fff&size=24"
+                  alt=""
+                />
+              </td>
+
+              <td>GROOMED</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="activity">
+          <p>Activity</p>
+
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="All" name="second">All</el-tab-pane>
+            <el-tab-pane label="Comments" name="first">
+              <div>
+                <table class="table-class">
+                  <tr class="comment-row">
+                    <td class="image">
+                      <img
+                        src="https://ui-avatars.com/api/?rounded=true&name=Y&background=44546f&color=fff&size=32"
+                        alt=""
+                      />
+                    </td>
+                    <td>
+                      <div class="texteditor">
+                        <Editor
+                          class="editor"
+                          model-events="change keydown blur focus paste"
+                          api-key="s56ww2wz2a1pzunzppdkc2byrc22cgmmj0tk5jtozb5colk4"
+                          :init="{
+                            toolbar_mode: 'sliding',
+                            height: 200,
+                            plugins:
+                              'anchor autolink charmap codesample emoticons  link lists searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+                            toolbar:
+                              'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link  table mergetags | checklist numlist bullist indent outdent |  align lineheight |  emoticons charmap | removeformat',
+                            tinycomments_mode: 'embedded',
+                          }"
+                        />
+                      </div>
+
+                      <div class="btn-save-cancel">
+                        <el-button size="small" type="primary">Save</el-button>
+                        <el-button size="small" type="text">Cancel</el-button>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="History" name="third">History</el-tab-pane>
+            <el-tab-pane label="Work Log" name="fourth">Work Log</el-tab-pane>
+            <el-tab-pane label="Checklist History" name="fifth"
+              >Checklist History</el-tab-pane
+            >
+          </el-tabs>
+        </div>
       </div>
+      <div class="right-part">hello</div>
     </div>
   </div>
 </template>
 
 <script>
 import SideBar from "../UI/SideBar.vue";
-// import {
-//   RichTextEditorComponent,
-//   Toolbar,
-//   Link,
-//   Image,
-//   Count,
-//   HtmlEditor,
-//   QuickToolbar,
-// } from "@syncfusion/ej2-vue-richtexteditor";
-
+import Editor from "@tinymce/tinymce-vue";
 export default {
   components: {
     SideBar,
-    // "ejs-richtexteditor": RichTextEditorComponent,
+    Editor,
   },
-  // provide: {
-  //   richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar],
-  // },
   data() {
     return {
       isVisible: false,
       activeName: "first",
-      // height: 400,
-      // quickToolbarSettings: {
-      //   image: [
-      //     "Replace",
-      //     "Align",
-      //     "Caption",
-      //     "Remove",
-      //     "InsertLink",
-      //     "OpenImageLink",
-      //     "-",
-      //     "EditImageLink",
-      //     "RemoveImageLink",
-      //     "Display",
-      //     "AltText",
-      //     "Dimension",
-      //   ],
-      // },
-      // toolbarSettings: {
-      //   items: [
-      //     "Bold",
-      //     "Italic",
-      //     "Underline",
-      //     "StrikeThrough",
-      //     "FontName",
-      //     "FontSize",
-      //     "FontColor",
-      //     "BackgroundColor",
-      //     "LowerCase",
-      //     "UpperCase",
-      //     "|",
-      //     "Formats",
-      //     "Alignments",
-      //     "OrderedList",
-      //     "UnorderedList",
-      //     "Outdent",
-      //     "Indent",
-      //     "|",
-      //     "CreateLink",
-      //     "Image",
-      //     "|",
-      //     "ClearFormat",
-      //     "Print",
-      //     "SourceCode",
-      //     "FullScreen",
-      //     "|",
-      //     "Undo",
-      //     "Redo",
-      //   ],
-      // },
     };
   },
   methods: {
@@ -229,15 +219,6 @@ export default {
 </script>
 
 <style scoped>
-/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-vue-richtexteditor/styles/material.css"; */
-
 .wrap-container {
   display: flex;
 }
@@ -253,7 +234,6 @@ export default {
 
 .main-content {
   display: flex;
-  flex-direction: column;
   width: calc(100% - 150px);
   padding: 2rem 0.7rem;
 }
@@ -298,12 +278,6 @@ export default {
   font-size: 14px;
 }
 
-.texteditor {
-  width: 40rem;
-  background-color: aqua;
-  height: 20rem;
-}
-
 .btn-save-cancel {
   padding-top: 0.3rem;
 }
@@ -326,4 +300,28 @@ export default {
 .table-avtar {
   margin-left: 3rem;
 }
+
+@media (min-width: 1024px) {
+  #sample {
+    place-items: center;
+  }
+}
+
+.editor > tox-statusbar {
+  display: none;
+}
+
+.left-part,
+.right-part {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.comment-row > td {
+  padding: 0.5rem 0.125rem;
+  padding-left: 0.4rem;
+}
+
+
 </style>
